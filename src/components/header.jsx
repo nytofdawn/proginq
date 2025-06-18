@@ -18,7 +18,7 @@ const Header = () => {
     <header className='bg-gradient-to-r from-green-500 to-transparent sticky top-0 z-50 p-1'>
         <div className='container mx-auto px-4 flex justify-between items-center'>
             <a href='/' className='flex items-center focus:outline-none focus:ring-2 focus:ring-green-200 rounded'>
-                <h1 className='text-5xl font-bold text-red-600'>D N L <small className='text-green-800'> Experts</small></h1>
+                <h1 className='text-5xl font-bold text-red-600'>D N L <small className='text-green-800'> Group Expert</small></h1>
             </a>
             <nav aria-label='Primary Navigation'>
                 <ul className='hidden md:flex space-x-8'>
@@ -72,7 +72,7 @@ const Header = () => {
                 </aside>
             )}
             <nav className='hidden md:block' aria-label = 'Contact Developers'>
-            <a href="#contactdev"
+            <a href="#contact"
             className='bg-green-400 hover:bg-red-400 text-white px-6 py-2 rounded-full
             transition-colors duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-offset-2'>
                 Be our client

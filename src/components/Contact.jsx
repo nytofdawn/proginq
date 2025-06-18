@@ -9,15 +9,15 @@ const Contact = () => {
             icon:<FaMapMarkedAlt className='text-purple-800 text-xl' />,
             title:"Our Location",
             content:(
-                <p className='text-green-600'> Southville 8B Rodriguez, Rizal</p>
+                <p className='text-green-950'> Southville 8B Rodriguez, Rizal</p>
             )
         },
         {
             icon:<FaPhoneAlt className='text-purple-800 text-xl' />,
-            title:"Phone Number",
+            title:"Whats App",
             content:(
-                <p className='text-green-600'>
-                    <a href="#" className='hover:text-green-800'> +63 993 559 9604</a>
+                <p className='text-green-950'>
+                    <a  target="_blank" href="https://wa.me/639935599604" className='hover:text-green-800'> +63 993 559 9604</a>
                 </p>
             )
         },
@@ -25,8 +25,8 @@ const Contact = () => {
             icon:<FaEnvelope className='text-purple-800 text-xl' />,
             title:"Email",
             content:(
-                <p className='text-green-600'>
-                    <a href="#" className='hover:text-green-800'>Dnl@expertsdev.com</a>
+                <p className='text-green-950'>
+                    <a target='_blank' href="mailto:Dnl@expertsdev.com" className='hover:text-green-800'>Dnl@expertsdev.com</a>
                 </p>
             )
         },
@@ -44,7 +44,7 @@ const Contact = () => {
             <header data-aos="fade-up" data-aos-delay="700" className='text-center mb-16 relative'>
                 <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full
                 bg-green-300 opacity-30 z-0'>
-                    <h1 className='text-3xl md:text-4xl font-bold text-gray-800 mb-4 relative z-10'>
+                    <h1 className='text-3xl md:text-4xl font-bold text-gray-800 mb-10 relative z-10'>
                         Trust <span className='text-green-700'>Our Company</span>
                     </h1>
                     <p className='text-lg text-green-700 max-w-2xl mx-auto relative z-10'>

@@ -23,7 +23,7 @@ const Hero = () => {
                 </hgroup>
                 <nav data-aos="flip-down" data-aos-delay="600" className='flex flex-col sm:flex-row gap-4 mb-12'>
                     <a
-                    href="#contactdev"
+                    href="#contact"
                     className='bg-green-400 hover:bg-red-400 text-white px-6 py-2 rounded-full
                     transition-colors duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-offset-2'
                     aria-label='Book a Project'>
