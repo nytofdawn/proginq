@@ -15,10 +15,10 @@ const Header = () => {
         {href:'#contact', label:'Contact'},
     ]
   return (
-    <header className='bg-gradient-to-r from-green-500 to-transparent sticky top-0 z-50 p-1'>
+    <header className='bg-gradient-to-r from-blue-600 via-white to-red-600 sticky top-0 z-50 p-1'>
         <div className='container mx-auto px-4 flex justify-between items-center'>
             <a href='/' className='flex items-center focus:outline-none focus:ring-2 focus:ring-green-200 rounded'>
-                <h1 className='text-5xl font-bold text-blue-900'>D N L <small className='text-green-800'> G Experts</small></h1>
+                <h1 className='text-5xl font-bold text-gray-900'>DNL<small className='text-green-800'> GExperts</small></h1>
             </a>
             <nav aria-label='Primary Navigation'>
                 <ul className='hidden md:flex space-x-8'>
@@ -49,7 +49,7 @@ const Header = () => {
             </button>
             {isMenuOpen && (
                 <aside id='mobile-menu'
-                className='md:hidden absolute top-16 left-0 right-0 bg-green-300 shadow-lg py-4 -px4'
+                className='md:hidden absolute top-14 left-0 right-0 bg-gradient-to-b from-blue-600 via-white to-red-600 shadow-lg py-4 -px4'
                 aria-label='Mobile Menu'
                 >
                     <nav aria-label='Mobile navigation'>

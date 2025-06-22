@@ -48,12 +48,12 @@ const Developers = () => {
                 <h2 className='text-3xl md:text-4xl font-bold text-green-800 mb-4 relative z-10'>
                 Meet Our <span className='text-gray-800 font-bold'> Expert team </span>
                 </h2>
-                <p className='text-lg text-gray-800 max-w-2xl mx-auto relative z-10'>
-                Lorem Ipsum Daw 
+                <p className='text-lg text-gray-800 max-w-2xl mx-auto relative z-10 font-medium'>
+                    This Developers are known for their skills in fast and efficiently building Systems
                 </p>
                 <span className='absolute -bottom-6 right-1/4 w-16 h-16 rounded-full bg-green-400 opacity-40 z-20' aria-hidden='true'></span>
             </header>
-            <ul data-aos='flip-up' data-aos-delay='700' className='grid grid-cols-1 md:grid-cols-2
+            <ul data-aos='fade-up' data-aos-delay='700' className='grid grid-cols-1 md:grid-cols-2
             lg:grid-cols-3 gap-8 mb-16'>
                 {
                     developers.map((dev)=>(

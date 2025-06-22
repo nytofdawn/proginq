@@ -43,13 +43,7 @@ const Contact = () => {
         <div className='container mx-auto px-4'>
             <header data-aos="fade-up" data-aos-delay="700" className='text-center mb-16 relative'>
                 <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full
-                bg-green-300 opacity-30 z-0'>
-                    <h1 className='text-3xl md:text-4xl font-bold text-gray-800 mb-10 relative z-10'>
-                        Trust <span className='text-green-700'>Our Company</span>
-                    </h1>
-                    <p className='text-lg text-green-700 max-w-2xl mx-auto relative z-10'>
-                        Basta Caption
-                    </p>
+                bg-green-300 opacity-40 z-0'>
                 </div>
             </header>
             <main className='flex flex-col lg:flex-row gap-12'>
