@@ -9,7 +9,7 @@ const Footer = () => {
         {icon: <FaTiktok className='text-lg'/>, label:"Tiktok", href:"https://www.netlify.com/"},
         {icon: <FaLinkedin className='text-lg'/>, label:"LinkedIn", href:"https://www.netlify.com/"},
         {icon: <FaYoutube className='text-lg'/>, label:"Youtube", href:"https://www.netlify.com/"},
-        {icon: <FaEnvelope className='text-lg'/>, label:"Email",href:"https://www.netlify.com/"},
+        {icon: <FaEnvelope className='text-lg'/>, label:"Email",href:"mailto:Dnl@expertsdev.com"},
         {icon: <FaWhatsapp className='text-lg'/>, label:"Whatsapp",href:"https://wa.me/639935599604"},
     ];
     const quicklinks =[
@@ -26,7 +26,7 @@ const Footer = () => {
         },
         {
             icon: <MdPhone className='text-green-500 text-xl mt-1 mr-4 flex-shrink-0'/>,
-            content: <a className='text-gray-500 hover:text-gray-800 transition'>dnl@expertsdev.com</a>
+            content: <a className='text-gray-500 hover:text-gray-800 transition'>+63993 559 9604</a>
         },
     ];
     const legalinks =[

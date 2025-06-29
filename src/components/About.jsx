@@ -115,7 +115,7 @@ const About = () => {
                             </div>
                             <figcaption>
                                 <cite className='font-semibold text-1xl text-green-500 not-italic'>Daniel Salazar De Guzman</cite>
-                                <p className='font-black'>CEO & DEVELOPER</p>
+                                <p className='font-black'> LEAD DEVELOPER</p>
                             </figcaption>
                         </figure>
                 </div>
