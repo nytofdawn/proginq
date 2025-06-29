@@ -153,15 +153,18 @@ const Contact = () => {
             <figure data-aos="fade-up" data-aos-delay="700"
             className='mt-16 bg-white rounded-2xl shadow-xl overflow-hidden'>
                 <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=121.14747807383537%2C14.7508781301816%2C121.1492483317852%2C14.75199865272787&amp;layer=hot"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=121.1481%2C14.7512%2C121.1492%2C14.7522&marker=14.7517%2C121.1486"
                 width="100%"
-                height="450"
+                height="350"
                 style={{border:1}}
                 allowFullScreen=""
                 loading='lazy'
                 title='DNL HQ Map'
-                className='rounded-2xl'
+                className='rounded-3xl'
                 aria-label='Map Showing Hq'></iframe>
+                <div className="absolute bottom-4 left-4 bg-white text-blue-800 text-sm px-3 py-1 rounded-full shadow">
+                    📍 DNL HQ
+                </div>
             </figure>
         </div>
     </article>

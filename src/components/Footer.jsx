@@ -7,7 +7,7 @@ const Footer = () => {
     const SocialLinks =[
         {icon: <FaFacebookF className='text-lg'/>, label:"Facebook", href:"https://www.netlify.com/"},
         {icon: <FaTiktok className='text-lg'/>, label:"Tiktok", href:"https://www.netlify.com/"},
-        {icon: <FaLinkedin className='text-lg'/>, label:"LinkedIn", href:"https://www.netlify.com/"},
+        {icon: <FaLinkedin className='text-lg'/>, label:"LinkedIn", href:"https://www.linkedin.com/in/daniel-de-guzman-748133364/"},
         {icon: <FaYoutube className='text-lg'/>, label:"Youtube", href:"https://www.netlify.com/"},
         {icon: <FaEnvelope className='text-lg'/>, label:"Email",href:"mailto:Dnl@expertsdev.com"},
         {icon: <FaWhatsapp className='text-lg'/>, label:"Whatsapp",href:"https://wa.me/639935599604"},
@@ -65,7 +65,7 @@ const Footer = () => {
                     </nav>
                 </section>
                 <section>
-                    <h3 className="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0
+                    <h3 className="text-xl font-bold mb-3 relative pb-2 after:content-[''] after:absolute after:left-0
                     after:bottom-0 after:w-12 after:h-1 after:bg-green-600">
                         Quick Links
                     </h3>
@@ -73,7 +73,7 @@ const Footer = () => {
                         <ul className='space-y-3'>
                             {quicklinks.map((link, index)=>(
                                 <li key={index}>
-                                    <a href={link.href} className="text-gray-400 hover:text-green-500 transition">
+                                    <a href={link.href} className="ml-6 text-gray-400 hover:text-green-500 transition">
                                         {link.text}
                                     </a>
                                 </li>
@@ -82,7 +82,7 @@ const Footer = () => {
                     </nav>
                 </section>
                 <address>
-                    <h3 className="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute
+                    <h3 className="text-xl font-bold mb-3 relative pb-2 after:content-[''] after:absolute
                     after:left-0 after-bottom-0 after:w-12 after:h-1 after:bg-green-500">
                         Contact Us
                     </h3>
