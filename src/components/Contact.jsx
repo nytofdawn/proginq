@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from 'react-icons/fa'
 import contactimg from '../assets/contact.png'
 
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name:'',
+        phone:'',
+        email:'',
+        service:'',
+        message:'',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
+
+    const handleInputChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('🚀 Form submitted with data:', formData);
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try{
+        console.log('📡 Fetching: https://companybackend-2zy8.onrender.com/api/contact');
+        
+        const response = await fetch('https://companybackend-2zy8.onrender.com/api/contact',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        console.log('📨 Response:', response.status, response.statusText);
+        const result = await response.json();
+        console.log('📋 Data:', result);
+
+        if (response.ok) {
+            setSubmitMessage('Message Sent Successfully! We\'ll get back to you soon.');
+            setFormData({
+                name:'',
+                phone:'',
+                email:'',
+                service:'',
+                message:'',
+            });
+        } else {
+            setSubmitMessage(`Error: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('❌ Detailed error:', error);
+        setSubmitMessage('Network Error. Please try again later')
+    } finally {
+        setIsSubmitting(false);
+    }
+}
     const contactItems = [
         {
             icon:<FaMapMarkedAlt className='text-purple-800 text-xl' />,
@@ -39,7 +96,7 @@ const Contact = () => {
         {value:"Website App", label:"Website Development"},
     ]
   return (
-    <article id= "contact"className='py-20 overflow-hidden bg-gradient-to-r from-green-300 to bg-violet-800'>
+    <article id="contact" className='py-20 overflow-hidden bg-gradient-to-r from-green-300 to bg-violet-800'>
         <div className='container mx-auto px-4'>
             <header data-aos="fade-up" data-aos-delay="700" className='text-center mb-16 relative'>
                 <div className='absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full
@@ -50,7 +107,7 @@ const Contact = () => {
                 <aside data-aos="fade up" data-aos-delay="700" className='lg:w-2/5'>
                     <section className="bg-gradient-to-br from-blue-800 via-white to-red-600 rounded-2xl shadow-xl p-8 h-full border-4 border-yellow-400">
                         <h2 className='text-2xl font-bold text-green-950'>Get In Touch</h2>
-                        <address className='spave-y-6'>
+                        <address className='space-y-6'>
                             {
                                 contactItems.map((item,index)=>(
                                     <article key={index} className='flex items-start'>
@@ -78,7 +135,18 @@ const Contact = () => {
                 <section data-aos="fade-up" data-aos-delay="700" className='lg:w-3/5'>
                     <div className='bg-white rounded-2xl shadow-xl p-8 h-full'>
                         <h2 className='text-2xl font-bold text-gray-800 mb-6'>Send Us a Message</h2>
-                        <form className='space-y-6'>
+
+                                    {submitMessage && (
+                                        <div className={`mb-4 p-4 rounded-lg ${
+                                            submitMessage.includes('Successfully') 
+                                                ? 'bg-green-100 text-green-800 border border-green-300' 
+                                                : 'bg-red-100 text-red-800 border border-red-300'
+                                        }`}>
+                                            {submitMessage}
+                                        </div>
+                                    )}
+                            
+                        <form className='space-y-6' onSubmit={handleSubmit}>
                             <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                                 <div>
                                     <label className='block text-gray-700 font-medium mb-2'>Full Name</label>
@@ -86,6 +154,8 @@ const Contact = () => {
                                     type='text'
                                     id='name'
                                     name='name'
+                                    value={formData.name}
+                                    onChange={handleInputChange}
                                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
                                     placeholder='Your Name'
                                     required/>
@@ -96,6 +166,8 @@ const Contact = () => {
                                     type='tel'
                                     id='phone'
                                     name='phone'
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
                                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
                                     placeholder='+63 xx xxxx xxxx'
                                     required/>
@@ -107,32 +179,36 @@ const Contact = () => {
                                     type='email'
                                     id='email'
                                     name='email'
+                                    value={formData.email}
+                                    onChange={handleInputChange}
                                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
                                     placeholder='example@email.com'
                                     required/>
                                 </div>
                                 <div>
-                                    <label className='block text-gray-700 font-medium mb-2'>Package Insterested In</label>
+                                    <label className='block text-gray-700 font-medium mb-2'>Package Interested In</label>
                                     <select
-                                    id='service'
-                                    name='service'
-                                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
-                                    placeholder='example@email.com'
-                                    required>
-                                    <option value="">Select a Package</option>
-                                    {services.map((service)=>(
-                                        <option key={service.value} value={service.value}>
-                                            {service.label}
-                                        </option>
-                                    ))}
+                                        id='service'
+                                        name='service'
+                                        value={formData.service}
+                                        onChange={handleInputChange}
+                                        className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
+                                        required>
+                                        <option value="">Select a Package</option>
+                                        {services.map((service)=>(
+                                            <option key={service.value} value={service.value}>
+                                                {service.label}
+                                            </option>
+                                        ))}
                                     </select>
                                 </div>
                             <div>
                                     <label className='block text-gray-700 font-medium mb-2'>Message to us</label>
                                     <textarea
-                                    
                                     id='message'
                                     name='message'
+                                    value={formData.message}
+                                    onChange={handleInputChange}
                                     rows='5'
                                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent'
                                     placeholder='Note your Concern and Questions'
@@ -141,9 +217,10 @@ const Contact = () => {
                             <div>
                                 <button
                                     type='submit'
-                                    className='bg-green-600 hover:bg-green-800 text-black px-8 py-3 rounded-full transition shadow-lg w-full md:w-auto'
+                                    disabled={isSubmitting}
+                                    className='bg-green-600 hover:bg-green-800 text-black px-8 py-3 rounded-full transition shadow-lg w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed'
                                     aria-label='Submit contact Form'>
-                                    Send Message
+                                    {isSubmitting ? 'Sending...' : 'Send Message'}
                                 </button>
                             </div>
                         </form>

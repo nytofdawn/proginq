@@ -23,7 +23,7 @@ const Developers = () => {
             languages:['ElectronJS','React','Vite']
         },
         {
-            id:2, 
+            id:3, 
             name:'Nathaniel Dimagiba', 
             role:'Full stack Developer', 
             image: <FaUser />,
