@@ -13,6 +13,7 @@ import Contact from './components/Contact'
 
 import TermsofService from './components/agreements/terms'
 import PrivacyPolicy from './components/agreements/privacy'
+import ScrollToHash from './components/scrolltohash'
 
 const Home = () => (
   <>
@@ -33,6 +34,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToHash />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
