@@ -8,11 +8,11 @@ const Header = () => {
     };
 
     const navLinks = [
-        {href:'#home', label:'Home'},
-        {href:'#services', label:'Services'},
-        {href:'#about', label:'About Us'},
-        {href:'#developer', label:'Developers'},
-        {href:'#contact', label:'Contact'},
+        {href:'/#home', label:'Home'},
+        {href:'/#services', label:'Services'},
+        {href:'/#about', label:'About Us'},
+        {href:'/#developer', label:'Developers'},
+        {href:'/#contact', label:'Contact'},
     ]
   return (
     <header className='bg-gradient-to-r from-blue-600 via-white to-red-600 sticky top-0 z-50 p-1'>

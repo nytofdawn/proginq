@@ -13,6 +13,8 @@ const Contact = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
+    const [messageType, setMessageType] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (e) => {
         setFormData({
@@ -22,45 +24,48 @@ const Contact = () => {
     };
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('🚀 Form submitted with data:', formData);
-    setIsSubmitting(true);
-    setSubmitMessage('');
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitMessage('');
+  setMessageType('');
+  setShowAlert(false);
 
-    try{
-        console.log('📡 Fetching: https://companybackend-2zy8.onrender.com/api/contact');
-        
-        const response = await fetch('https://companybackend-2zy8.onrender.com/api/contact',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
+  try {
+    const response = await fetch('https://companybackend-2zy8.onrender.com/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-        console.log('📨 Response:', response.status, response.statusText);
-        const result = await response.json();
-        console.log('📋 Data:', result);
+    const result = await response.json();
 
-        if (response.ok) {
-            setSubmitMessage('Message Sent Successfully! We\'ll get back to you soon.');
-            setFormData({
-                name:'',
-                phone:'',
-                email:'',
-                service:'',
-                message:'',
-            });
-        } else {
-            setSubmitMessage(`Error: ${result.message}`);
-        }
-    } catch (error) {
-        console.error('❌ Detailed error:', error);
-        setSubmitMessage('Network Error. Please try again later')
-    } finally {
-        setIsSubmitting(false);
+    if (response.ok) {
+      setSubmitMessage("✅ Message Sent Successfully! We'll get back to you soon.");
+      setMessageType('success');
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        service: '',
+        message: '',
+      });
+    } else {
+      setSubmitMessage(`❌ Error: ${result.message}`);
+      setMessageType('error');
     }
-}
+
+    setShowAlert(true);
+
+  } catch (error) {
+    setSubmitMessage('❌ Network Error. Please try again later.');
+    setMessageType('error');
+    setShowAlert(true);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
     const contactItems = [
         {
             icon:<FaMapMarkedAlt className='text-purple-800 text-xl' />,
@@ -136,15 +141,24 @@ const Contact = () => {
                     <div className='bg-white rounded-2xl shadow-xl p-8 h-full'>
                         <h2 className='text-2xl font-bold text-gray-800 mb-6'>Send Us a Message</h2>
 
-                                    {submitMessage && (
-                                        <div className={`mb-4 p-4 rounded-lg ${
-                                            submitMessage.includes('Successfully') 
-                                                ? 'bg-green-100 text-green-800 border border-green-300' 
-                                                : 'bg-red-100 text-red-800 border border-red-300'
-                                        }`}>
-                                            {submitMessage}
-                                        </div>
-                                    )}
+                                            {showAlert && (
+                                            <div className="fixed inset-0 flex items-center justify-center z-50">
+                                                <div className={`relative px-6 py-4 rounded-lg shadow-lg text-white text-center text-lg w-[90%] max-w-md
+                                                ${messageType === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+
+                                                <button
+                                                    className="absolute top-2 right-3 text-white text-xl font-bold hover:text-gray-200"
+                                                    onClick={() => setShowAlert(false)}
+                                                >
+                                                    ×
+                                                </button>
+
+                                                {submitMessage}
+                                                </div>
+                                            </div>
+                                            )}
+
+
                             
                         <form className='space-y-6' onSubmit={handleSubmit}>
                             <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-6'>

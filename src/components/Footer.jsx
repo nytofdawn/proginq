@@ -13,11 +13,11 @@ const Footer = () => {
         {icon: <FaWhatsapp className='text-lg'/>, label:"Whatsapp",href:"https://wa.me/639935599604"},
     ];
     const quicklinks =[
-        {text:"Home", href:"#"},
-        {text:"About Us", href:"#about"},
-        {text:"Package and Services", href:"#services"},
-        {text:"Active Developers", href:"#developer"},
-        {text:"Contact Us", href:"#contact"},
+        {text:"Home", href:"/#home"},
+        {text:"About Us", href:"/#about"},
+        {text:"Package and Services", href:"/#services"},
+        {text:"Active Developers", href:"/#developer"},
+        {text:"Contact Us", href:"/#contact"},
     ];
     const contactinfo = [
         {
@@ -30,8 +30,8 @@ const Footer = () => {
         },
     ];
     const legalinks =[
-        {text:"Privacy Policy",href:"#"},
-        {text:"Terms of Service",href:"#"},
+        {text:"Privacy Policy",href:"/privacy-policy"},
+        {text:"Terms of Service",href:"/terms-of-service"},
         {text:"Sitemap",href:"#"},
     ]
   return (
