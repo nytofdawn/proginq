@@ -7,8 +7,8 @@ const About = () => {
     const stats= [
         {value:"3", label: "Active Developers", icon: <FaUser className='text-gray-700' aria-hidden='true'/>},
         {value:"12", label: "Completed Projects", icon:<FaDesktop className='text-gray-700' aria-hidden='true'/>},
-        {value:"5", label: "On Queue Projects", icon: <FaFolder className='text-gray-700' aria-hidden='true'/>},
-        {value:"1", label:"Company Year", icon: <FaCalendar className='text-gray-700' aria-hidden='true'/>},
+        {value:"2", label: "On Queue Projects", icon: <FaFolder className='text-gray-700' aria-hidden='true'/>},
+        {value:"12+", label:"Total Years of Developers Experience", icon: <FaCalendar className='text-gray-700' aria-hidden='true'/>},
     ];
 
     const approachItems=[   
@@ -26,7 +26,7 @@ const About = () => {
         },
         {
             icon: <FaCalendar className='text-gray-500' aria-hidden='true'/>,
-            text:"Company's Age when Built",
+            text:"Total Years of Developers Experience",
         },
     ]
   return (

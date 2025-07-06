@@ -5,8 +5,8 @@ const Hero = () => {
     const stats = [
         {value:"3", label: "Active Developers"},
         {value:"12", label: "Completed Projects"},
-        {value:"5", label: "Queueing Projects"},
-        {value:"1 year", label:"Company Year"},
+        {value:"2", label: "Queueing Projects"},
+        {value:"12+ years", label:"Total Experience"},
     ];
   return (
     <section id='home' className='relative overflow-hidden bg-gradient-to-r from-green-300 to bg-violet-800'>
